@@ -1095,5 +1095,11 @@ namespace NGUInjector
             if (_initializing) return;
             Main.Settings.CubePriority = CubePriority.SelectedIndex;
         }
-    }
+
+		private void LoopMinor_CheckedChanged(object sender, EventArgs e)
+		{
+            if (_initializing) return;
+            Main.Settings.LoopMinorForMinimumDrop = LoopMinor.Checked;
+        }
+	}
 }

@@ -62,6 +62,7 @@ namespace NGUInjector
         [SerializeField] private bool _useButterMajor;
         [SerializeField] private bool _useButterMinor;
         [SerializeField] private bool _manualMinors;
+        [SerializeField] private bool _loopMinorForMinimumDrop;
         [SerializeField] private bool _manageR3;
         [SerializeField] private bool _activateFruits;
         [SerializeField] private int[] _wishPriorities;
@@ -177,6 +178,7 @@ namespace NGUInjector
             _useButterMajor = other.UseButterMajor;
             _useButterMinor = other.UseButterMinor;
             _manualMinors = other.ManualMinors;
+            _loopMinorForMinimumDrop = other.LoopMinorForMinimumDrop;
             _manageR3 = other.ManageR3;
             _activateFruits = other.ActivateFruits;
             _wishPriorities = other.WishPriorities;
@@ -688,6 +690,17 @@ namespace NGUInjector
             {
                 if (value == _manualMinors) return;
                 _manualMinors = value;
+                SaveSettings();
+            }
+        }
+
+        public bool LoopMinorForMinimumDrop
+        {
+            get => _loopMinorForMinimumDrop;
+            set
+            {
+                if (value == _loopMinorForMinimumDrop) return;
+                _loopMinorForMinimumDrop = value;
                 SaveSettings();
             }
         }

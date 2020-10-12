@@ -88,6 +88,16 @@ namespace NGUInjector.Managers
                     _character.settings.useMajorQuests = false;
                     SetIdleMode(!Settings.ManualMinors);
                     _character.beastQuestController.startQuest();
+
+					if (!Settings.LoopMinorForMinimumDrop)
+					{
+                        //Loop minor quest until finding one where the target number of drops is the minimum (50).
+                        while (_character.beastQuest.targetDrops > 50)
+                        {
+                            _character.beastQuestController.skipQuest();
+                            _character.beastQuestController.startQuest();
+                        }
+					}
                 }
 
                 return;
